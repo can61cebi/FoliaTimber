@@ -1,8 +1,14 @@
 # FoliaTimber 🪓
 
+<p align="center">
+  <strong>Smart tree chopping with intelligent structure protection for Folia & Paper</strong>
+</p>
+
+---
+
 **Finally, a tree feller that doesn't break your house.**
 
-FoliaTimber lets you chop entire trees by breaking a single log, while your builds stay safe. Built natively for high-performance servers running **Folia** (1.21.11+).
+FoliaTimber is a lightweight, high-performance plugin built for **Folia** and **Paper** 1.21+. It lets you chop down entire trees by breaking just one log, but with a smart twist: it knows when you're hitting a tree and when you're hitting a building.
 
 ---
 
@@ -20,11 +26,7 @@ FoliaTimber lets you chop entire trees by breaking a single log, while your buil
 
 ## 📽️ Visuals
 
-### Tree Chopping
-(GIF Placeholder: Normal tree chopping demo)
-
-### Structure Protection
-(GIF Placeholder: Villager house protection with debug mode)
+(Please upload your "Tree Chopping" GIF here via Modrinth settings)
 
 ---
 
