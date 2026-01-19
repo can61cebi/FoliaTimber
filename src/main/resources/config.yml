@@ -1,0 +1,55 @@
+# FoliaTimber Configuration
+# Smart tree chopping with structure protection
+
+# Language: en (English), tr (Turkish), de (German)
+language: en
+
+general:
+  # Is the plugin enabled?
+  enabled: true
+  # Timber enabled by default for players?
+  default-enabled: true
+  # Only work while sneaking?
+  require-sneak: false
+  # Require axe to use?
+  require-axe: true
+  # Maximum tree size (logs)
+  max-tree-size: 256
+
+protection:
+  # CoreProtect integration (recommended for structure protection)
+  use-coreprotect: true
+  # How many days to look back for block history
+  coreprotect-lookup-days: 30
+  # Check for player structures attached to trees (treehouse detection)
+  check-treehouse: true
+  # Radius to check around tree logs for player structures
+  treehouse-check-radius: 2
+  # WorldGuard integration
+  use-worldguard: true
+
+tree-detection:
+  # Minimum leaves count (to be considered a natural tree)
+  min-leaves: 5
+  # Minimum logs count
+  min-logs: 3
+  # Leaf search radius around logs
+  leaf-search-radius: 6
+  # Check for horizontal logs (structure detection)
+  check-horizontal-logs: true
+  # Check for mixed log types (structure detection)
+  check-mixed-logs: true
+
+chopping:
+  # Break leaves along with logs
+  break-leaves: true
+  # Tool damage multiplier per log (1.0 = normal, 0.5 = half damage)
+  tool-damage-multiplier: 1.0
+  # Auto-collect drops to player inventory
+  auto-collect: true
+
+effects:
+  # Show particle effects when chopping
+  particles: true
+  # Play sound effects when chopping
+  sounds: true
