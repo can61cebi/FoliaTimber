@@ -1,44 +1,46 @@
 # FoliaTimber 🪓
 
-**Smart tree chopping with structure protection for Folia & Paper.**
+**Finally, a tree feller that doesn't break your house.**
 
 FoliaTimber lets you chop entire trees by breaking a single log, while your builds stay safe. Built natively for high-performance servers running **Folia** (1.21.11+).
 
 ---
 
-## ✨ Features
+## ✨ Highlights
 
-- ⚡ **Instant Chopping** - One log breaks the whole tree.
-- 🏠 **Structure Protection** - Automatically protects player builds.
-- 🌳 **Treehouse Detection** - Bases built on trees are safe.
-- 📦 **Auto-Collect** - Items go straight to your inventory.
-- 🪓 **Smart Damage** - Only logs damage your axe.
-- 🔍 **CoreProtect** - Uses block history for 100% accuracy.
-- 🛡️ **WorldGuard** - Full region permission support.
-- 🌍 **3 Languages** - English, Turkish, German.
-- 🐞 **Debug Command** - Use `/timber debug` to see detection info.
+- ⚡ **Chop in one hit:** Break the bottom log, take the whole tree.
+- 🏠 **Smart Protection:** Automatically ignores player builds, villager houses, and treehouses.
+- 📦 **No Item Lag:** Logs and leaves go directly into your inventory.
+- 🪓 **Save your Axe:** Only spends durability on the wood, not the leaves.
+- 🛡️ **Pro Protection:** Works with **CoreProtect** and **WorldGuard**.
+- 🌍 **Native Languages:** English, Turkish, and German support.
+- 🐞 **Live Debug:** Use `/timber debug` to see exactly how the plugin "sees" the tree.
 
 ---
 
-## 🎮 Commands & Permissions
+## 📽️ Visuals
 
-| Command | Description | Permission |
-|---------|-------------|------------|
-| `/timber` | Toggle on/off | `foliatimber.use` |
-| `/timber debug` | Toggle debug mode | `foliatimber.use` |
-| `/timber lang <en/tr/de>` | Change language | `foliatimber.use` |
-| `/timber reload` | Reload config | `foliatimber.reload` |
+### Tree Chopping
+(GIF Placeholder: Normal tree chopping demo)
 
----
-
-## 🛠️ Requirements
-
-- **Folia** 1.21+ or **Paper** 1.21+
-- **Java** 21+
-- *Recommended:* CoreProtect & WorldGuard
+### Structure Protection
+(GIF Placeholder: Villager house protection with debug mode)
 
 ---
 
-## 📜 License
+## 🎮 Commands
+
+- `/timber` - Toggle the feller.
+- `/timber debug` - Toggle per-player debug messages.
+- `/timber lang <en/tr/de>` - Change your language.
+- `/timber reload` - Reload the config (Admin).
+
+---
+
+## 🛠️ Usage
+
+Simply break a log with an axe. The plugin will scan the area, ensure it's a natural tree (and not part of a house), and drop everything into your bags.
+
+---
 
 MIT License - Copyright (c) 2026 can61cebi
