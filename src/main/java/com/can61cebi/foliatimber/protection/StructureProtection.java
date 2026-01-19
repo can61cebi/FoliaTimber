@@ -1,13 +1,12 @@
-package com.kuzgunmc.foliatimber.protection;
+package com.can61cebi.foliatimber.protection;
 
-import com.kuzgunmc.foliatimber.FoliaTimber;
-import com.kuzgunmc.foliatimber.config.ConfigManager;
-import com.kuzgunmc.foliatimber.util.MaterialUtil;
+import com.can61cebi.foliatimber.FoliaTimber;
+import com.can61cebi.foliatimber.config.ConfigManager;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
+import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 
 /**
  * Main structure protection service.
@@ -20,7 +19,7 @@ public class StructureProtection {
     private final CoreProtectHook coreProtect;
     
     // Block types that indicate a treehouse/structure when player-placed
-    private static final Set<Material> STRUCTURE_BLOCKS = Set.of(
+    public static final Set<Material> STRUCTURE_BLOCKS = Set.of(
         // Planks
         Material.OAK_PLANKS, Material.SPRUCE_PLANKS, Material.BIRCH_PLANKS,
         Material.JUNGLE_PLANKS, Material.ACACIA_PLANKS, Material.DARK_OAK_PLANKS,
@@ -85,48 +84,31 @@ public class StructureProtection {
     
     /**
      * Check if tree has a treehouse (player-placed structure blocks attached).
-     * This should be called from async thread but only uses block locations for CoreProtect query.
-     * 
-     * @param logs The set of log blocks in the tree
+     * Uses pre-collected structure blocks from TreeData to avoid async block access.
+     *
+     * @param potentialStructureBlocks Map of blocks to their materials (collected on region thread)
      * @return true if treehouse detected, false otherwise
      */
-    public boolean hasTreehouse(Set<Block> logs) {
+    public boolean hasTreehouse(Map<Block, Material> potentialStructureBlocks) {
         if (!config.checkTreehouse()) {
             return false;
         }
-        
+
         if (!config.useCoreProtect() || !coreProtect.isEnabled()) {
             return false;
         }
-        
-        int radius = config.getTreehouseCheckRadius();
-        
-        // Check area around each log for player-placed structure blocks
-        for (Block log : logs) {
-            for (int dx = -radius; dx <= radius; dx++) {
-                for (int dy = -radius; dy <= radius; dy++) {
-                    for (int dz = -radius; dz <= radius; dz++) {
-                        if (dx == 0 && dy == 0 && dz == 0) continue;
-                        
-                        Block nearby = log.getRelative(dx, dy, dz);
-                        Material type = nearby.getType();
-                        
-                        // Skip air, logs, and leaves
-                        if (type.isAir()) continue;
-                        if (MaterialUtil.isLogBlock(type)) continue;
-                        if (MaterialUtil.isLeafBlock(type)) continue;
-                        
-                        // Check if this is a structure block
-                        if (isStructureBlock(type)) {
-                            if (isPlayerPlacedBlock(nearby)) {
-                                return true;
-                            }
-                        }
-                    }
-                }
+
+        if (potentialStructureBlocks.isEmpty()) {
+            return false;
+        }
+
+        // Check if any of the pre-collected structure blocks were player-placed
+        for (Block block : potentialStructureBlocks.keySet()) {
+            if (isPlayerPlacedBlock(block)) {
+                return true;
             }
         }
-        
+
         return false;
     }
     

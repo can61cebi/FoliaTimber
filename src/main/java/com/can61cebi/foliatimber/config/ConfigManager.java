@@ -1,6 +1,6 @@
-package com.kuzgunmc.foliatimber.config;
+package com.can61cebi.foliatimber.config;
 
-import com.kuzgunmc.foliatimber.FoliaTimber;
+import com.can61cebi.foliatimber.FoliaTimber;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -117,8 +117,14 @@ public class ConfigManager {
         return AVAILABLE_LANGUAGES.contains(lang.toLowerCase());
     }
     
+    // ========== Debug ==========
+
+    public boolean isDebug() {
+        return config.getBoolean("debug", false);
+    }
+
     // ========== General Settings ==========
-    
+
     public boolean isEnabled() {
         return config.getBoolean("general.enabled", true);
     }
@@ -223,5 +229,27 @@ public class ConfigManager {
     
     public String getLanguage() {
         return language;
+    }
+
+    // ========== Debug Messages ==========
+
+    public String getDebugPrefix() {
+        return langConfig.getString("debug-prefix", "&8[&bDebug&8] ");
+    }
+
+    public String getDebugMessage(String key) {
+        return getDebugPrefix() + langConfig.getString(key, "&cDebug message not found: " + key);
+    }
+
+    public String getDebugMessage(String key, String... replacements) {
+        String msg = getDebugPrefix() + langConfig.getString(key, "&cDebug message not found: " + key);
+        for (int i = 0; i < replacements.length - 1; i += 2) {
+            msg = msg.replace(replacements[i], replacements[i + 1]);
+        }
+        return msg;
+    }
+
+    public String getRawDebugMessage(String key) {
+        return langConfig.getString(key, "");
     }
 }

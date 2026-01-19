@@ -1,13 +1,13 @@
-package com.kuzgunmc.foliatimber;
+package com.can61cebi.foliatimber;
 
-import com.kuzgunmc.foliatimber.command.TimberCommand;
-import com.kuzgunmc.foliatimber.config.ConfigManager;
-import com.kuzgunmc.foliatimber.listener.BlockBreakListener;
-import com.kuzgunmc.foliatimber.protection.CoreProtectHook;
-import com.kuzgunmc.foliatimber.protection.StructureProtection;
-import com.kuzgunmc.foliatimber.protection.WorldGuardHook;
-import com.kuzgunmc.foliatimber.scheduler.FoliaSchedulerWrapper;
-import com.kuzgunmc.foliatimber.tree.TreeDetector;
+import com.can61cebi.foliatimber.command.TimberCommand;
+import com.can61cebi.foliatimber.config.ConfigManager;
+import com.can61cebi.foliatimber.listener.BlockBreakListener;
+import com.can61cebi.foliatimber.protection.CoreProtectHook;
+import com.can61cebi.foliatimber.protection.StructureProtection;
+import com.can61cebi.foliatimber.protection.WorldGuardHook;
+import com.can61cebi.foliatimber.scheduler.FoliaSchedulerWrapper;
+import com.can61cebi.foliatimber.tree.TreeDetector;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.plugin.java.JavaPlugin;

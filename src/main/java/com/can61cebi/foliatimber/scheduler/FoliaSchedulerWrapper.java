@@ -1,6 +1,6 @@
-package com.kuzgunmc.foliatimber.scheduler;
+package com.can61cebi.foliatimber.scheduler;
 
-import com.kuzgunmc.foliatimber.FoliaTimber;
+import com.can61cebi.foliatimber.FoliaTimber;
 import com.tcoded.folialib.FoliaLib;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;

@@ -1,16 +1,18 @@
-package com.kuzgunmc.foliatimber.tree;
+package com.can61cebi.foliatimber.tree;
 
-import com.kuzgunmc.foliatimber.FoliaTimber;
-import com.kuzgunmc.foliatimber.config.ConfigManager;
-import com.kuzgunmc.foliatimber.util.MaterialUtil;
+import com.can61cebi.foliatimber.FoliaTimber;
+import com.can61cebi.foliatimber.config.ConfigManager;
+import com.can61cebi.foliatimber.util.MaterialUtil;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Handles the actual tree chopping process.
@@ -140,19 +142,42 @@ public class TreeChopper {
     
     /**
      * Apply durability damage to the player's tool (only for logs).
+     * Respects Unbreaking enchantment manually since Bukkit API doesn't handle it.
      */
     private void applyToolDamage(int logCount) {
         ItemStack playerTool = player.getInventory().getItemInMainHand();
-        
+
         if (playerTool == null || playerTool.getType().isAir()) return;
         if (!MaterialUtil.isAxe(playerTool.getType())) return;
-        
+
         ItemMeta meta = playerTool.getItemMeta();
         if (meta instanceof Damageable damageable) {
-            int damage = (int) Math.ceil(logCount * config.getToolDamageMultiplier());
-            int newDamage = damageable.getDamage() + damage;
+            // Get Unbreaking level
+            int unbreakingLevel = playerTool.getEnchantmentLevel(Enchantment.UNBREAKING);
+
+            // Calculate actual damage with Unbreaking
+            // Formula: For each point of damage, there's a 1/(level+1) chance it applies
+            // E.g., Unbreaking III = 1/4 = 25% chance per damage point
+            int actualDamage = 0;
+            int baseDamage = (int) Math.ceil(logCount * config.getToolDamageMultiplier());
+
+            if (unbreakingLevel > 0) {
+                // Roll for each damage point
+                for (int i = 0; i < baseDamage; i++) {
+                    // 1/(level+1) chance to take damage
+                    if (ThreadLocalRandom.current().nextInt(unbreakingLevel + 1) == 0) {
+                        actualDamage++;
+                    }
+                }
+            } else {
+                actualDamage = baseDamage;
+            }
+
+            if (actualDamage <= 0) return; // Unbreaking saved all damage
+
+            int newDamage = damageable.getDamage() + actualDamage;
             int maxDurability = playerTool.getType().getMaxDurability();
-            
+
             if (newDamage >= maxDurability) {
                 // Tool breaks
                 player.getInventory().setItemInMainHand(null);

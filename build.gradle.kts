@@ -4,7 +4,7 @@ plugins {
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
 
-group = "com.kuzgunmc"
+group = "com.can61cebi"
 version = "1.0.0"
 
 repositories {
@@ -34,7 +34,7 @@ java {
 tasks.shadowJar {
     archiveBaseName.set("FoliaTimber")
     archiveClassifier.set("")
-    relocate("com.tcoded.folialib", "com.kuzgunmc.foliatimber.lib.folialib")
+    relocate("com.tcoded.folialib", "com.can61cebi.foliatimber.lib.folialib")
 }
 
 tasks.build {
@@ -43,7 +43,7 @@ tasks.build {
 
 bukkit {
     name = "FoliaTimber"
-    main = "com.kuzgunmc.foliatimber.FoliaTimber"
+    main = "com.can61cebi.foliatimber.FoliaTimber"
     apiVersion = "1.21"
     foliaSupported = true
     softDepend = listOf("CoreProtect", "WorldGuard")

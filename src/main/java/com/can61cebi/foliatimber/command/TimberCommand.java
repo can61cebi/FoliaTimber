@@ -1,9 +1,9 @@
-package com.kuzgunmc.foliatimber.command;
+package com.can61cebi.foliatimber.command;
 
-import com.kuzgunmc.foliatimber.FoliaTimber;
-import com.kuzgunmc.foliatimber.config.ConfigManager;
-import com.kuzgunmc.foliatimber.listener.BlockBreakListener;
-import com.kuzgunmc.foliatimber.util.MessageUtil;
+import com.can61cebi.foliatimber.FoliaTimber;
+import com.can61cebi.foliatimber.config.ConfigManager;
+import com.can61cebi.foliatimber.listener.BlockBreakListener;
+import com.can61cebi.foliatimber.util.MessageUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -47,6 +47,9 @@ public class TimberCommand implements CommandExecutor, TabCompleter {
             }
             case "lang", "language" -> {
                 return handleLanguage(sender, args);
+            }
+            case "debug" -> {
+                return handleDebug(sender);
             }
             case "help" -> {
                 return handleHelp(sender);
@@ -125,12 +128,36 @@ public class TimberCommand implements CommandExecutor, TabCompleter {
         
         return true;
     }
+
+    private boolean handleDebug(CommandSender sender) {
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage("This command can only be used by players.");
+            return true;
+        }
+
+        if (!player.hasPermission("foliatimber.use")) {
+            MessageUtil.send(player, config.getPrefixedMessage("no-permission"));
+            return true;
+        }
+
+        BlockBreakListener listener = plugin.getBlockBreakListener();
+        boolean newState = listener.toggleDebug(player);
+
+        if (newState) {
+            MessageUtil.send(player, config.getPrefixedMessage("debug-enabled"));
+        } else {
+            MessageUtil.send(player, config.getPrefixedMessage("debug-disabled"));
+        }
+
+        return true;
+    }
     
     private boolean handleHelp(CommandSender sender) {
         sendMessage(sender, config.getPrefixedMessage("help-header"));
         sendMessage(sender, config.getMessage("help-toggle"));
         sendMessage(sender, config.getMessage("help-reload"));
         sendMessage(sender, config.getMessage("help-lang"));
+        sendMessage(sender, config.getMessage("help-debug"));
         sendMessage(sender, config.getMessage("help-help"));
         
         return true;
@@ -155,6 +182,7 @@ public class TimberCommand implements CommandExecutor, TabCompleter {
             if ("toggle".startsWith(partial)) completions.add("toggle");
             if ("help".startsWith(partial)) completions.add("help");
             if ("lang".startsWith(partial)) completions.add("lang");
+            if ("debug".startsWith(partial)) completions.add("debug");
             
             if (sender.hasPermission("foliatimber.reload")) {
                 if ("reload".startsWith(partial)) completions.add("reload");

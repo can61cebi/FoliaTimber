@@ -1,6 +1,6 @@
-package com.kuzgunmc.foliatimber.protection;
+package com.can61cebi.foliatimber.protection;
 
-import com.kuzgunmc.foliatimber.FoliaTimber;
+import com.can61cebi.foliatimber.FoliaTimber;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
 import org.bukkit.block.Block;

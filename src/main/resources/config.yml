@@ -4,6 +4,9 @@
 # Language: en (English), tr (Turkish), de (German)
 language: en
 
+# Debug mode - shows detailed info about tree detection
+debug: false
+
 general:
   # Is the plugin enabled?
   enabled: true

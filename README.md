@@ -1,114 +1,102 @@
-# FoliaTimber
+# FoliaTimber 🪓
+
+<p align="center">
+  <img src="logo.png" alt="FoliaTimber Logo" width="200">
+</p>
 
 <p align="center">
   <strong>Smart tree chopping with intelligent structure protection for Folia & Paper</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Folia-1.21+-green?style=flat-square" alt="Folia">
-  <img src="https://img.shields.io/badge/Paper-1.21+-blue?style=flat-square" alt="Paper">
-  <img src="https://img.shields.io/badge/Java-21+-orange?style=flat-square" alt="Java">
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/Folia-1.21.11-green?style=for-the-badge" alt="Folia">
+  <img src="https://img.shields.io/badge/Paper-1.21.x-blue?style=for-the-badge" alt="Paper">
+  <img src="https://img.shields.io/badge/Java-21-orange?style=for-the-badge" alt="Java">
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License">
 </p>
 
 ---
 
-## About
+## 🌟 About
 
-FoliaTimber lets you chop entire trees by breaking a single log. It features intelligent protection that automatically detects and protects player structures, treehouses, and village buildings.
+FoliaTimber is a high-performance Minecraft plugin designed specifically for the multithreaded **Folia** environment. It allows players to chop entire trees by breaking just a single log, while ensuring that player-built structures, treehouses, and village buildings remain completely safe.
 
-**Built natively for Folia** with thread-safe region scheduling, but also works on Paper.
-
----
-
-## Features
-
-- **Instant Tree Chopping** - Break one log, the whole tree falls
-- **Structure Protection** - Automatically protects player-built structures
-- **Treehouse Detection** - Trees with attached ladders, planks, etc. are protected
-- **Auto-Collect** - Drops go directly to your inventory
-- **Smart Tool Damage** - Only logs damage your axe, not leaves
-- **CoreProtect Integration** - Uses block history for accurate protection (optional)
-- **WorldGuard Support** - Respects region permissions
-- **Multi-Language** - English, Turkish, German
+**Built natively for Folia** with thread-safe region scheduling, but also fully compatible with **Paper**.
 
 ---
 
-## Commands
+## 🔥 Features
+
+- ⚡ **Instant Tree Chopping** - Break one log, the whole tree falls (with smooth animations).
+- 🏠 **Structure Protection** - Automatically detects and protects player-built structures.
+- 🌳 **Treehouse Detection** - Trees with attached ladders, planks, or other blocks are ignored to protect your base.
+- 📦 **Auto-Collect** - Drops are automatically added to your inventory to prevent lag and item clutter.
+- 🛠️ **Smart Tool Damage** - Durability is only consumed for the logs, saving your axe from leaf decay.
+- 🔍 **CoreProtect Integration** - Leverages block history for pixel-perfect protection.
+- 🛡️ **WorldGuard Support** - Respects all region flags and permissions.
+- 🌍 **Multi-Language Support** - English (`en`), Turkish (`tr`), and German (`de`) out of the box.
+- 🐞 **Advanced Debug Mode** - Per-player `/timber debug` command to see why a tree was (or wasn't) chopped.
+
+---
+
+## 🎮 Commands
 
 | Command | Description | Permission |
-|---------|-------------|------------|
-| `/timber` | Toggle timber on/off | `foliatimber.use` |
-| `/timber lang <en/tr/de>` | Change language | `foliatimber.reload` |
-| `/timber reload` | Reload configuration | `foliatimber.reload` |
-| `/timber help` | Show help | `foliatimber.use` |
+|:---|:---|:---|
+| `/timber` | Toggle timber feature on/off | `foliatimber.use` |
+| `/timber debug` | Toggle your personal debug mode | `foliatimber.use` |
+| `/timber lang <en|tr|de>` | Change your preferred language | `foliatimber.use` |
+| `/timber reload` | Reload the plugin configuration | `foliatimber.reload` |
+| `/timber help` | Show this help menu | `foliatimber.use` |
 
 ---
 
-## Permissions
+## 🔐 Permissions
 
-| Permission | Description | Default |
-|------------|-------------|---------|
-| `foliatimber.use` | Use timber feature | Everyone |
-| `foliatimber.bypass` | Bypass structure protection | Nobody |
-| `foliatimber.reload` | Reload config and change language | OP |
+- `foliatimber.use`: Allows using the timber feature and basic commands. (Default: Everyone)
+- `foliatimber.reload`: Allows reloading the config and changing global language settings. (Default: OP)
+- `foliatimber.bypass`: Allows chopping logs that are part of protected structures. (Default: Nobody)
 
 ---
 
-## Configuration
+## ⚙️ Configuration
+
+The `config.yml` is simple and powerful:
 
 ```yaml
-language: en  # en, tr, or de
+language: tr  # en, tr, or de
+
+# Debug mode - Global toggle
+debug: false
 
 general:
-  enabled: true
   require-axe: true
   max-tree-size: 256
 
 protection:
-  use-coreprotect: true      # Optional, recommended
+  use-coreprotect: true
   check-treehouse: true
   use-worldguard: true
-
-chopping:
-  break-leaves: true
-  auto-collect: true
-  tool-damage-multiplier: 1.0
 ```
 
 ---
 
-## Installation
+## 🛠️ Building
 
-1. Download `FoliaTimber-1.0.0.jar`
-2. Place in `plugins/` folder
-3. Restart server
-4. Configure in `plugins/FoliaTimber/config.yml`
-
----
-
-## Requirements
-
-- **Server**: Folia 1.21+ or Paper 1.21+
-- **Java**: 21+
-- **Optional**: CoreProtect (for structure protection), WorldGuard
-
----
-
-## Building
+To build the project yourself:
 
 ```bash
-./gradlew shadowJar
+./gradlew clean build
 ```
 
 ---
 
-## License
+## 📜 License
 
-MIT License
+Distributed under the **MIT License**. See `LICENSE` for more information.
 
 ---
 
-## Author
-
-**can61cebi** - [GitHub](https://github.com/can61cebi)
+<p align="center">
+  Made with ❤️ by <strong>can61cebi</strong>
+</p>

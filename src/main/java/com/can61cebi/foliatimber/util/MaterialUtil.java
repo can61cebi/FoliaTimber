@@ -1,4 +1,4 @@
-package com.kuzgunmc.foliatimber.util;
+package com.can61cebi.foliatimber.util;
 
 import org.bukkit.Material;
 
