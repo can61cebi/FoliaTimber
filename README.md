@@ -26,11 +26,11 @@ FoliaTimber is a lightweight, high-performance plugin built for **Folia** and **
 ## 📽️ See it in action
 
 ### Instant Chopping
-![Tree Chopping Demo](assets/chopping.gif)
+<img src="assets/chopping.gif" width="600" alt="Tree Chopping Demo">
 *A simple oak tree falling with one hit. Clean and efficient.*
 
 ### Intelligent Structure Protection
-![Structure Protection Demo](assets/protection.gif)
+<img src="assets/protection.gif" width="600" alt="Structure Protection Demo">
 *With debug mode on, you can see how the plugin ignores villager houses and player builds. Your treehouse is safe!*
 
 ---
@@ -49,7 +49,7 @@ Most "Timber" plugins haven't been updated for the multithreaded madness of **Fo
 
 ## 🎮 Commands
 
-![Commands Help](assets/help.png)
+<img src="assets/help.png" width="500" alt="Commands Help">
 
 | Command | What it does | Permission |
 |:---|:---|:---|
