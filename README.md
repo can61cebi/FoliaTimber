@@ -1,4 +1,4 @@
-# FoliaTimber 🪓
+# FoliaTimber
 
 <p align="center">
   <img src="logo.png" alt="FoliaTimber Logo" width="200">
@@ -17,63 +17,58 @@
 
 ---
 
-**Finally, a tree feller that doesn't break your house.**
+### A tree feller that respects your builds
 
-FoliaTimber is a lightweight, high-performance plugin built for **Folia** and **Paper** 1.21+. It lets you chop down entire trees by breaking just one log, but with a smart twist: it knows when you're hitting a tree and when you're hitting a building.
+FoliaTimber is a high-performance plugin built for **Folia** and **Paper** 1.21+. It allows players to harvest entire trees by breaking just one log, while intelligently identifying and protecting player-built structures and houses.
 
 ---
 
-## 📽️ See it in action
+## Technical Visuals
 
-### Instant Chopping
+### Efficiency in Action
 <img src="assets/chopping.gif" width="600" alt="Tree Chopping Demo">
-*A simple oak tree falling with one hit. Clean and efficient.*
+*Harvesting a natural tree with a single axe swing.*
 
-### Intelligent Structure Protection
+### Structure Awareness
 <img src="assets/protection.gif" width="600" alt="Structure Protection Demo">
-*With debug mode on, you can see how the plugin ignores villager houses and player builds. Your treehouse is safe!*
+*With debug mode enabled, the plugin distinguishes between natural logs and protected structures.*
 
 ---
 
-## 🛠️ Why FoliaTimber?
+## Why FoliaTimber?
 
-Most "Timber" plugins haven't been updated for the multithreaded madness of **Folia**. This one was built for it from the ground up, using region-aware scheduling to keep your TPS steady.
+Unlike legacy timber plugins, FoliaTimber was built from the ground up for the multithreaded architecture of **Folia**, utilizing region-aware scheduling to ensure zero impact on server performance.
 
-- **Safe Builds:** Automatically detects ladders, planks, and signs on trees. If it looks like a structure, it won't be chopped.
-- **Auto-Inventory:** Drops go straight to you. No more chasing logs down a hill or lagging out the server with hundreds of items.
-- **Smart Tools:** Your axe only takes durability for the logs that actually break.
-- **Multi-lingual:** Supports English, Turkish, and German.
-- **Debug on the fly:** Use `/timber debug` to see exactly why a block was ignored or why a tree was chopped.
+- **Structure Recognition:** Automatically detects ladders, planks, and signs. Built-in logic prevents accidental damage to player bases.
+- **Inventory Management:** Harvested items are added directly to the player's inventory, preventing entity lag and dropped-item clutter.
+- **Smart Tool Damage:** Axe durability is only consumed for wood blocks, preserving your tools during leaf decay.
+- **Localization:** Full support for English, Turkish, and German.
+- **Real-time Debugging:** Toggle `/timber debug` to see exactly why a block was ignored or processed.
 
 ---
 
-## 🎮 Commands
+## Commands
 
 <img src="assets/help.png" width="500" alt="Commands Help">
 
-| Command | What it does | Permission |
+| Command | Function | Permission |
 |:---|:---|:---|
-| `/timber` | Turn the feature on/off for yourself | `foliatimber.use` |
-| `/timber debug` | See real-time detection info | `foliatimber.use` |
-| `/timber lang` | Switch between `en`, `tr`, and `de` | `foliatimber.use` |
-| `/timber reload` | Reload the config file | `foliatimber.reload` |
+| `/timber` | Toggle the timber feature | `foliatimber.use` |
+| `/timber debug` | Toggle real-time detection feedback | `foliatimber.use` |
+| `/timber lang` | Switch between English, Turkish, and German | `foliatimber.use` |
+| `/timber reload` | Reload the configuration file | `foliatimber.reload` |
 
 ---
 
-## 🔧 Installation & Requirements
+## Installation
 
-1. Drop the JAR into your `plugins` folder.
-2. Restart the server.
-3. (Optional) Install **CoreProtect** and **WorldGuard** for even better protection.
+1. Place the JAR in your `plugins` folder.
+2. Restart your server.
+3. (Optional) Enhance protection with **CoreProtect** and **WorldGuard**.
 
-- **Server:** Folia 1.21+ or Paper 1.21+
-- **Java:** 21
-
----
-
-## 📜 License
-
-MIT License - Feel free to use and modify it!
+**Server Requirements:** Folia 1.21+ or Paper 1.21+  
+**Java Version:** 21
 
 ---
-*Created by **can61cebi***
+
+Distributed under the MIT License. Created by can61cebi.

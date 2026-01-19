@@ -1,47 +1,45 @@
-# FoliaTimber 🪓
+# FoliaTimber
 
-<p align="center">
-  <strong>Smart tree chopping with intelligent structure protection for Folia & Paper</strong>
-</p>
+**A smart tree feller built for performance and protection.**
 
----
-
-**Finally, a tree feller that doesn't break your house.**
-
-FoliaTimber is a lightweight, high-performance plugin built for **Folia** and **Paper** 1.21+. It lets you chop down entire trees by breaking just one log, but with a smart twist: it knows when you're hitting a tree and when you're hitting a building.
+FoliaTimber allows for efficient tree harvesting by breaking a single log, while ensuring player structures remain safe. Native support for high-performance **Folia** (1.21.11+) and **Paper** environments.
 
 ---
 
-## ✨ Highlights
+## Key Features
 
-- ⚡ **Chop in one hit:** Break the bottom log, take the whole tree.
-- 🏠 **Smart Protection:** Automatically ignores player builds, villager houses, and treehouses.
-- 📦 **No Item Lag:** Logs and leaves go directly into your inventory.
-- 🪓 **Save your Axe:** Only spends durability on the wood, not the leaves.
-- 🛡️ **Pro Protection:** Works with **CoreProtect** and **WorldGuard**.
-- 🌍 **Native Languages:** English, Turkish, and German support.
-- 🐞 **Live Debug:** Use `/timber debug` to see exactly how the plugin "sees" the tree.
-
----
-
-## 📽️ Visuals
-
-(Please upload your "Tree Chopping" GIF here via Modrinth settings)
+- **Instant Harvesting:** Break the base log to feller the entire tree.
+- **Structure Recognition:** Intelligently ignores player builds, villager houses, and treehouses.
+- **Optimized Inventory:** Items are added directly to the inventory to eliminate entity lag.
+- **Axe Preservation:** Durability is only spent on logs, not decaying leaves.
+- **Integration:** Compatible with **CoreProtect** and **WorldGuard** for enhanced safety.
+- **Localization:** Native support for English, Turkish, and German.
+- **Debug Insights:** Use `/timber debug` to analyze how the plugin identifies blocks in real-time.
 
 ---
 
-## 🎮 Commands
+## Demonstrations
 
-- `/timber` - Toggle the feller.
-- `/timber debug` - Toggle per-player debug messages.
-- `/timber lang <en/tr/de>` - Change your language.
-- `/timber reload` - Reload the config (Admin).
+### Tree Harvesting
+![chopping demo](https://cdn.modrinth.com/data/cached_images/e8c2ffe684985cd2f0adf722d5814337d1faf303.gif)
+
+### Structure Protection
+(Please upload your "Protection Demo" GIF here via Modrinth settings)
 
 ---
 
-## 🛠️ Usage
+## Commands
 
-Simply break a log with an axe. The plugin will scan the area, ensure it's a natural tree (and not part of a house), and drop everything into your bags.
+- `/timber` — Toggle the timber feature.
+- `/timber debug` — Toggle per-player debug messages.
+- `/timber lang <en/tr/de>` — Change preferred language.
+- `/timber reload` — Reload configuration (Admin).
+
+---
+
+## Implementation
+
+FoliaTimber uses region-aware scheduling to maintain peak performance on Folia servers. By analyzing connected blocks and structure history, it distinguishes between natural world-gen and player-placed architecture.
 
 ---
 
